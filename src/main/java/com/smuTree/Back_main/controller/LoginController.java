@@ -51,7 +51,7 @@ public class LoginController {
             // loginService.saveKakaoUser(userInfo);
 
             // Redirect to the frontend application
-            response.sendRedirect(String.format("http://%s:%s/InGame", frontendIp, frontendPort));
+            response.sendRedirect(String.format("http://%s:%s/NickName", frontendIp, frontendPort));
         } catch (Exception e) {
             log.error("Error during Kakao login process", e);
             try {
