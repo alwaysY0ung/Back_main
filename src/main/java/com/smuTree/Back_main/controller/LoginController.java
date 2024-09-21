@@ -1,6 +1,5 @@
 package com.smuTree.Back_main.controller;
 
-import com.smuTree.Back_main.service.LoginService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +16,6 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 @Controller
 public class LoginController {
-
-    @Autowired
-    private LoginService loginService;
 
     @Value("${kakao.client_id}")
     private String kakaoClientId;
@@ -48,7 +43,6 @@ public class LoginController {
             log.info("Retrieved Kakao user info: {}", userInfo);
 
             // TODO: Save user information to the database
-            // loginService.saveKakaoUser(userInfo);
 
             // Redirect to the frontend application
             response.sendRedirect(String.format("http://%s:%s/InGame", frontendIp, frontendPort));

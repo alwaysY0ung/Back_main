@@ -26,4 +26,24 @@ public class User {
     @Column
     private Timestamp highscore_time;
 
+    @Enumerated(EnumType.STRING)
+    @Column
+    private Provider provider; //소셜 서비스 (네이버, 카카오...)
+
+    public Integer getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
+    }
+
+    public Provider getProvider() {
+        return provider;
+    }
+
+    public void setProvider(Provider provider) {
+        this.provider = provider;
+    }
+
 }
